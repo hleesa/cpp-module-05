@@ -7,9 +7,6 @@ void test1() {
 	} catch (std::exception& e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
-}
-
-void test2() {
 	try {
 		Bureaucrat salee2("salee2", 151);
 	} catch (std::exception& e) {
@@ -17,7 +14,7 @@ void test2() {
 	}
 }
 
-void test3() {
+void test2() {
 	try {
 		Bureaucrat salee2("salee2", 2);
 		std::cout << salee2;
@@ -30,7 +27,7 @@ void test3() {
 	}
 }
 
-void test4() {
+void test3() {
 	try {
 		Bureaucrat salee2("salee2", 149);
 		std::cout << salee2;
@@ -47,18 +44,14 @@ int main() {
 
 	std::cout << "#############################################" << std::endl;
 	std::cout << "#############################################" << std::endl;
+	std::cout << "\n\n";
 	test1();
-	std::cout << "=============================================" << std::endl;
-	std::cout << "=============================================" << std::endl;
+	std::cout << "\n\n";
 	test2();
-	std::cout << "=============================================" << std::endl;
-	std::cout << "=============================================" << std::endl;
+	std::cout <<"\n\n";
 	test3();
-	std::cout << "=============================================" << std::endl;
-	std::cout << "=============================================" << std::endl;
-	test4();
+	std::cout <<"\n\n";
 	std::cout << "#############################################" << std::endl;
 	std::cout << "#############################################" << std::endl;
-
 	return 0;
 }
