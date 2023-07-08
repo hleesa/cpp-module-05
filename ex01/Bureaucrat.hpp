@@ -50,19 +50,19 @@ public:
 
 	~Bureaucrat();
 
-	const std::string getName() const;
-
-	int getGrade() const;
-
 	void upgrade();
 
 	void degrade();
 
-	static int getHighestGrade();
-
-	static int getLowestGrade();
-
 	void signForm(Form& form);
+
+	const std::string getName() const;
+
+	int getGrade() const;
+
+	static int getHighestGrade() const;
+
+	static int getLowestGrade() const;
 
 };
 

@@ -37,6 +37,8 @@ public:
 		const char* what() const throw();
 	};
 
+	void validateGrades();
+
 	Form();
 
 	Form(const std::string name, const int gradeForSign, const int gradeForExecute);
@@ -46,8 +48,6 @@ public:
 	Form& operator=(const Form& other);
 
 	~Form();
-
-	void validateGrades();
 
 	void beSigned(const Bureaucrat& bureaucrat);
 

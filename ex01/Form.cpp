@@ -32,7 +32,6 @@ void Form::validateGrades() {
 
 Form::Form() : name("none"), isSigned(false),
 			   gradeForSign(Bureaucrat::getLowestGrade()), gradeForExecute(Bureaucrat::getLowestGrade()) {
-	validateGrades();
 }
 
 Form::Form(const std::string name, const int gradeForSign, const int gradeForExecute) :
