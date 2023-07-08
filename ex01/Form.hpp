@@ -12,7 +12,8 @@ class Form {
 private:
 	const std::string name;
 	bool isSigned;
-
+	const int gradeForSign;
+	const int gradeForExecute;
 
 public:
 
@@ -38,7 +39,7 @@ public:
 
 	Form();
 
-	Form(const std::string name, bool isSigned, const int gradeForSign, const int gradeForExecute);
+	Form(const std::string name, const int gradeForSign, const int gradeForExecute);
 
 	Form(const Form& other);
 
@@ -46,9 +47,20 @@ public:
 
 	~Form();
 
+	void validateGrades();
+
 	void beSigned(const Bureaucrat& bureaucrat);
+
+	const std::string getName() const;
+
+	bool getIsSigned() const;
+
+	int getGradeForSign() const;
+
+	int getGradeForExecute() const;
 
 };
 
+std::ostream& operator<<(std::ostream& os, const Form& obj);
 
 #endif //FORM_HPP

@@ -1,6 +1,10 @@
 
 #include "Bureaucrat.hpp"
 
+const int Bureaucrat::highestGrade = 1;
+
+const int Bureaucrat::lowestGrade = 150;
+
 Bureaucrat::GradeTooHighException::GradeTooHighException() : errorMessage("The bureaucrat's grade is too high") {
 }
 
@@ -15,11 +19,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 	return errorMessage;
 }
 
-const int Bureaucrat::highestGrade = 1;
-
-const int Bureaucrat::lowestGrade = 150;
-
-Bureaucrat::Bureaucrat() : name("none"), grade(42) {
+Bureaucrat::Bureaucrat() : name("none"), grade(lowestGrade) {
 }
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name), grade(grade) {
@@ -72,6 +72,16 @@ int Bureaucrat::getHighestGrade() {
 
 int Bureaucrat::getLowestGrade() {
 	return lowestGrade;
+}
+
+void Bureaucrat::signForm(Form& form) {
+	if (grade <= form.getGradeForSign()) {
+		form.beSigned(*this);
+		std::cout << name << " signed " << form.getName() << '\n';
+	}
+	else {
+		std::cout << name << " couldn't sign " << form.getName() << " because grade to low\n";
+	}
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) {

@@ -7,17 +7,17 @@
 
 #include "Form.hpp"
 
+class Form;
+
 class Bureaucrat {
 
 private:
-
 	const std::string name;
 	int grade;
 	static const int highestGrade;
 	static const int lowestGrade;
 
 public:
-
 	class GradeTooHighException : public std::exception {
 
 	private:
@@ -58,9 +58,9 @@ public:
 
 	void degrade();
 
-	int getHighestGrade();
+	static int getHighestGrade();
 
-	int getLowestGrade();
+	static int getLowestGrade();
 
 	void signForm(Form& form);
 
