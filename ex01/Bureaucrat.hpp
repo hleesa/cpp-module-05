@@ -60,9 +60,9 @@ public:
 
 	int getGrade() const;
 
-	static int getHighestGrade() const;
+	static int getHighestGrade();
 
-	static int getLowestGrade() const;
+	static int getLowestGrade();
 
 };
 
