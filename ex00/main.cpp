@@ -10,6 +10,7 @@ void test1() {
 			std::cout << "Exception: " << e.what() << std::endl;
 		}
 	}
+	std::cout << "\n\n";
 }
 
 void test2() {
@@ -23,6 +24,7 @@ void test2() {
 	} catch (std::exception& e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
+	std::cout << "\n\n";
 }
 
 void test3() {
@@ -36,6 +38,8 @@ void test3() {
 	} catch (std::exception& e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
+	std::cout << "\n\n";
+
 }
 
 int main() {
@@ -43,12 +47,11 @@ int main() {
 	std::cout << "#############################################" << std::endl;
 	std::cout << "#############################################" << std::endl;
 	std::cout << "\n\n";
+
 	test1();
-	std::cout << "\n\n";
 	test2();
-	std::cout << "\n\n";
 	test3();
-	std::cout << "\n\n";
+
 	std::cout << "#############################################" << std::endl;
 	std::cout << "#############################################" << std::endl;
 	return 0;
