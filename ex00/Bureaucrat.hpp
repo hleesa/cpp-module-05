@@ -46,13 +46,13 @@ public:
 
 	~Bureaucrat();
 
-	const std::string getName() const;
-
-	int getGrade() const;
-
 	void upgrade();
 
 	void degrade();
+
+	const std::string getName() const;
+
+	int getGrade() const;
 
 };
 
