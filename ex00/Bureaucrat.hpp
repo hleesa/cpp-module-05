@@ -8,12 +8,12 @@
 class Bureaucrat {
 
 private:
-
 	const std::string name;
 	int grade;
+	const int highestGrade;
+	const int lowestGrade;
 
 public:
-
 	class GradeTooHighException : public std::exception {
 
 	private:

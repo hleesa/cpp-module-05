@@ -15,19 +15,21 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 	return errorMessage;
 }
 
-Bureaucrat::Bureaucrat() : name("none"), grade(150) {
+Bureaucrat::Bureaucrat() : name("none"), grade(42), highestGrade(1), lowestGrade(150) {
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name), grade(grade) {
-	if (grade < 1) {
+Bureaucrat::Bureaucrat(const std::string name, int grade)
+		: name(name), grade(grade), highestGrade(1), lowestGrade(150) {
+	if (grade < highestGrade) {
 		throw Bureaucrat::GradeTooHighException();
 	}
-	else if (grade > 150) {
+	else if (grade > lowestGrade) {
 		throw Bureaucrat::GradeTooLowException();
 	}
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name), grade(other.grade) {
+Bureaucrat::Bureaucrat(const Bureaucrat& other)
+		: name(other.name), grade(other.grade), highestGrade(other.highestGrade), lowestGrade(other.lowestGrade) {
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
@@ -49,14 +51,14 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::upgrade() {
-	if (grade <= 1) {
+	if (grade <= highestGrade) {
 		throw Bureaucrat::GradeTooHighException();
 	}
 	--grade;
 }
 
 void Bureaucrat::degrade() {
-	if (grade >= 150) {
+	if (grade >= lowestGrade) {
 		throw Bureaucrat::GradeTooLowException();
 	}
 	++grade;
