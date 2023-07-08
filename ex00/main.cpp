@@ -2,15 +2,13 @@
 #include "Bureaucrat.hpp"
 
 void test1() {
-	try {
-		Bureaucrat salee2("salee2", 0);
-	} catch (std::exception& e) {
-		std::cout << "Exception: " << e.what() << std::endl;
-	}
-	try {
-		Bureaucrat salee2("salee2", 151);
-	} catch (std::exception& e) {
-		std::cout << "Exception: " << e.what() << std::endl;
+	int grades[] = {0, 151, -1, 152, -42, 4242};
+	for (int i = 0; i < 6; ++i) {
+		try {
+			Bureaucrat salee2("salee2", grades[i]);
+		} catch (std::exception& e) {
+			std::cout << "Exception: " << e.what() << std::endl;
+		}
 	}
 }
 
@@ -48,9 +46,9 @@ int main() {
 	test1();
 	std::cout << "\n\n";
 	test2();
-	std::cout <<"\n\n";
+	std::cout << "\n\n";
 	test3();
-	std::cout <<"\n\n";
+	std::cout << "\n\n";
 	std::cout << "#############################################" << std::endl;
 	std::cout << "#############################################" << std::endl;
 	return 0;
