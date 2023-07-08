@@ -15,11 +15,24 @@ const char* Form::GradeTooLowException::what() const throw() {
 	return errorMessage;
 }
 
-Form::Form() : name("none"), isSigned(false), gradeForSign(150), gradeForExecute(150) {
+Form::Form() : name("none"), isSigned(false),
+			   gradeForSign(Bureaucrat::getLowestGrade()), gradeForExecute(Bureaucrat::getLowestGrade()) {
 }
 
 Form::Form(const std::string name, bool isSigned, const int gradeForSign, const int gradeForExecute) :
 		name(name), isSigned(isSigned), gradeForSign(gradeForSign), gradeForExecute(gradeForExecute) {
+	if (gradeForSign < Bureaucrat::getHighestGrade()) {
+		throw GradeTooHighException();
+	}
+	else if (gradeForSign > Bureaucrat::getLowestGrade()) {
+		throw GradeTooLowException();
+	}
+	else if (gradeForExecute < Bureaucrat::getHighestGrade()) {
+		throw GradeTooHighException();
+	}
+	else if (gradeForExecute > Bureaucrat::getLowestGrade()) {
+		throw GradeTooLowException();
+	}
 }
 
 Form::Form(const Form& other) {

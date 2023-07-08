@@ -13,6 +13,8 @@ private:
 
 	const std::string name;
 	int grade;
+	static const int highestGrade;
+	static const int lowestGrade;
 
 public:
 
@@ -55,6 +57,10 @@ public:
 	void upgrade();
 
 	void degrade();
+
+	int getHighestGrade();
+
+	int getLowestGrade();
 
 	void signForm(Form& form);
 

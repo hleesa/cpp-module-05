@@ -12,8 +12,7 @@ class Form {
 private:
 	const std::string name;
 	bool isSigned;
-	const int gradeForSign;
-	const int gradeForExecute;
+
 
 public:
 
@@ -29,7 +28,7 @@ public:
 
 	class GradeTooLowException : public std::exception {
 	private:
-		constt char* errorMessage;
+		const char* errorMessage;
 
 	public:
 		GradeTooLowException();
