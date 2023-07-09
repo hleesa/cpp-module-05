@@ -6,11 +6,6 @@
 
 class PresidentialPardonForm : public AForm {
 
-private:
-	static const std::string name;
-	static const int gradeForSign;
-	static const int gradeForExecute;
-
 public:
 	PresidentialPardonForm();
 

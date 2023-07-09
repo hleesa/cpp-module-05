@@ -1,11 +1,7 @@
 
 #include "ShrubberyCreationForm.hpp"
 
-const std::string ShrubberyCreationForm::name = "ShrubberyCreationForm";
-const int ShrubberyCreationForm::gradeForSign = 145;
-const int ShrubberyCreationForm::gradeForExecute = 137;
-
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm(name, gradeForSign, gradeForExecute) {
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137) {
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other) {
@@ -23,7 +19,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
 	if (this->getIsSigned()) {
-		if (executor.getGrade() > gradeForExecute) {
+		if (executor.getGrade() > this->getGradeForExecute()) {
 			throw GradeTooLowException();
 		}
 		//exec
