@@ -1,11 +1,11 @@
 
-#ifndef ROBOTOMYREQUESTAForm_HPP
-#define ROBOTOMYREQUESTAForm_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 
-class RobotomyRequestAForm {
+class RobotomyRequestForm {
 
 };
 
 
-#endif //ROBOTOMYREQUESTAForm_HPP
+#endif //ROBOTOMYREQUESTFORM_HPP

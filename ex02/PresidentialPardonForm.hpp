@@ -1,11 +1,11 @@
 
-#ifndef PRESIDENTIALPARDONAForm_HPP
-#define PRESIDENTIALPARDONAForm_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
 
-class PresidentialPardonAForm {
+class PresidentialPardonForm {
 
 };
 
 
-#endif //PRESIDENTIALPARDONAForm_HPP
+#endif //PRESIDENTIALPARDONFORM_HPP

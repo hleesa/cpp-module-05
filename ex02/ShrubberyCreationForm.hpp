@@ -1,11 +1,11 @@
 
-#ifndef SHRUBBERYCREATIONAForm_HPP
-#define SHRUBBERYCREATIONAForm_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
 
-class ShrubberyCreationAForm {
+class ShrubberyCreationForm {
 
 };
 
 
-#endif //SHRUBBERYCREATIONAForm_HPP
+#endif //SHRUBBERYCREATIONFORM_HPP
