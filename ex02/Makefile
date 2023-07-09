@@ -8,6 +8,9 @@ SRCS = \
 	AForm.cpp \
 	Bureaucrat.cpp \
 	main.cpp \
+	PresidentialPardonForm.cpp \
+	RobotomyRequestForm.cpp \
+	ShrubberyCreationForm.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 DEPS = $(SRCS:.cpp=.d)

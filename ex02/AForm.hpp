@@ -47,7 +47,7 @@ public:
 
 	AForm& operator=(const AForm& other);
 
-	~AForm();
+	virtual ~AForm();
 
 	void beSigned(const Bureaucrat& bureaucrat);
 
