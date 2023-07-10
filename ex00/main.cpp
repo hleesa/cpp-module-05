@@ -51,9 +51,10 @@ int main() {
 	std::cout << "\n\n";
 
 	test1();
-	test2();
-	test3();
+//	test2();
+//	test3();
 
+//	system("leaks bureaucrat");
 	std::cout << "#############################################" << std::endl;
 	std::cout << "#############################################" << std::endl;
 	return 0;
