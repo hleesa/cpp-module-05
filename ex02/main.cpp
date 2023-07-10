@@ -141,7 +141,7 @@ int main() {
 //	test2();
 //	test3();
 
-//	test20();
+	test20();
 //	test21();
 //	test22();
 //	test23();
