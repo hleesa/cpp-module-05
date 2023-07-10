@@ -2,10 +2,12 @@
 #include "Bureaucrat.hpp"
 
 void test1() {
-	int grades[] = {0, 151, -1, 152, -42, 4242};
-	for (int i = 0; i < 6; ++i) {
+	int grade[] = {0, 151, -1, 152, -42, 4242, 1, 150, 50, 100};
+	int size = sizeof(grade) / sizeof(grade[0]);
+	for (int i = 0; i < size; ++i) {
 		try {
-			Bureaucrat salee2("salee2", grades[i]);
+			Bureaucrat salee2("salee2", grade[i]);
+			std::cout << salee2;
 		} catch (std::exception& e) {
 			std::cout << "Exception: " << e.what() << std::endl;
 		}
