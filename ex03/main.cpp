@@ -124,14 +124,20 @@ void test23() {
 
 #include "Intern.hpp"
 
-void test30()
-{
-	try {
-		Intern intern;
-		AForm* form;
-		form = intern.makeForm("robotomy request", "Bender");
-	} catch (std::exception& e) {
-		std::cout << "Exception: " << e.what() << std::endl;
+void test30() {
+	std::string nameAndTarget[][2] = {{"shrubbery creation",  "dog"},
+									  {"robotomy request",    "Bender"},
+									  {"presidential pardon", "cat"}};
+	int size = 3;
+	for (int i = 0; i < size; ++i) {
+		try {
+			Intern intern;
+			AForm* form;
+			form = intern.makeForm(nameAndTarget[i][0], nameAndTarget[i][1]);
+		} catch (std::exception& e) {
+			std::cout << "Exception: " << e.what() << std::endl;
+		}
+		std::cout << "\n\n";
 	}
 
 }
