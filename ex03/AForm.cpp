@@ -1,5 +1,8 @@
 
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 AForm::GradeTooHighException::GradeTooHighException() : errorMessage("The form's grade is too high") {
 }
@@ -77,19 +80,13 @@ bool AForm::isExecutable(const Bureaucrat& executor) const {
 	throw NoSignedFormException();
 }
 
-#include "ShrubberyCreationForm.hpp"
-
 AForm* AForm::createShrubberyCreationForm(const std::string target) {
 	return new ShrubberyCreationForm(target);
 }
 
-#include "RobotomyRequestForm.hpp"
-
 AForm* AForm::createRobotomyRequestForm(const std::string target) {
 	return new RobotomyRequestForm(target);
 }
-
-#include "PresidentialPardonForm.hpp"
 
 AForm* AForm::createPresidentialPardonForm(const std::string target) {
 	return new PresidentialPardonForm(target);
