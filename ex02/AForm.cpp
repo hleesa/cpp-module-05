@@ -34,8 +34,8 @@ AForm::AForm() : name("none"), isSigned(false),
 			   gradeForSign(Bureaucrat::getLowestGrade()), gradeForExecute(Bureaucrat::getLowestGrade()) {
 }
 
-AForm::AForm(const std::string name, const int gradeForSign, const int gradeForExecute) :
-		name(name), isSigned(false), gradeForSign(gradeForSign), gradeForExecute(gradeForExecute) {
+AForm::AForm(const std::string name, const std::string target, const int gradeForSign, const int gradeForExecute) :
+		name(name), target(target), isSigned(false), gradeForSign(gradeForSign), gradeForExecute(gradeForExecute) {
 	validateGrades();
 }
 
@@ -62,6 +62,10 @@ void AForm::beSigned(const Bureaucrat& bureaucrat) {
 
 const std::string AForm::getName() const {
 	return name;
+}
+
+const std::string AForm::getTarget() const {
+	return target;
 }
 
 bool AForm::getIsSigned() const {

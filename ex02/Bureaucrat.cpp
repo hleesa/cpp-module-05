@@ -57,13 +57,23 @@ void Bureaucrat::degrade() {
 	++grade;
 }
 
-void Bureaucrat::signAForm(AForm& AForm) {
-	if (grade <= AForm.getGradeForSign()) {
-		AForm.beSigned(*this);
-		std::cout << name << " signed " << AForm.getName() << '\n';
+void Bureaucrat::signAForm(AForm& form) {
+	if (grade <= form.getGradeForSign()) {
+		form.beSigned(*this);
+		std::cout << name << " signed " << form.getName() << '\n';
 	}
 	else {
-		std::cout << name << " couldn't sign " << AForm.getName() << " because grade to low\n";
+		std::cout << name << " couldn't sign " << form.getName() << " because grade too low\n";
+	}
+}
+
+void Bureaucrat::executeForm(const AForm& form) {
+	if (grade <= form.getGradeForExecute()) {
+		std::cout << name << " executed " << form.getName() << '\n';
+		form.execute(*this);
+	}
+	else {
+		std::cout << name << " couldn't execute " << form.getName() << " because grade too low\n";
 	}
 }
 

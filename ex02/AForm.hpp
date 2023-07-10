@@ -11,6 +11,7 @@ class AForm {
 
 private:
 	const std::string name;
+	const std::string target;
 	bool isSigned;
 	const int gradeForSign;
 	const int gradeForExecute;
@@ -41,7 +42,7 @@ public:
 
 	AForm();
 
-	AForm(const std::string name, const int gradeForSign, const int gradeForExecute);
+	AForm(const std::string name, const std::string target, const int gradeForSign, const int gradeForExecute);
 
 	AForm(const AForm& other);
 
@@ -52,6 +53,8 @@ public:
 	void beSigned(const Bureaucrat& bureaucrat);
 
 	const std::string getName() const;
+
+	const std::string getTarget() const;
 
 	bool getIsSigned() const;
 

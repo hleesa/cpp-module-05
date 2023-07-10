@@ -1,7 +1,11 @@
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137) {
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", "none", 145, 137) {
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target)
+		: AForm("ShrubberyCreationForm", target, 145, 137) {
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other) {
@@ -17,11 +21,39 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 ShrubberyCreationForm::~ShrubberyCreationForm() {
 }
 
+void writeASCIITrees(std::string target) {
+	std::string fileName = target + "_shrubbery";
+	std::ofstream outputFile(fileName);
+
+	if (outputFile.is_open()) {
+		outputFile << "         *" << std::endl;
+		outputFile << "        ***" << std::endl;
+		outputFile << "       *****" << std::endl;
+		outputFile << "      *******" << std::endl;
+		outputFile << "     *********" << std::endl;
+		outputFile << "    ***********" << std::endl;
+		outputFile << "   *************" << std::endl;
+		outputFile << "  ***************" << std::endl;
+		outputFile << " *****************" << std::endl;
+		outputFile << "*******************" << std::endl;
+		outputFile << "        |||" << std::endl;
+
+		outputFile.close();
+		std::cout << "Tree shape has been written to the file " << fileName << std::endl;
+	}
+	else {
+		std::cout << "Unable to open the file." << std::endl;
+	}
+}
+
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
 	if (this->getIsSigned()) {
 		if (executor.getGrade() > this->getGradeForExecute()) {
 			throw GradeTooLowException();
 		}
-		//exec
+		writeASCIITrees(this->getTarget());
+	}
+	else {
+		std::cout << "no sign" << std::endl;
 	}
 }

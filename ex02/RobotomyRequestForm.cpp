@@ -1,7 +1,10 @@
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45) {
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", "none", 72, 45) {
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm("RobotomyRequestForm", target, 72, 45) {
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AForm(other) {
@@ -17,11 +20,31 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 RobotomyRequestForm::~RobotomyRequestForm() {
 }
 
+void makeDrillingNoise() {
+	std::cout << "Vrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr\n";
+}
+
+void robotomized(std::string target) {
+	makeDrillingNoise();
+	std::srand(static_cast<unsigned int>(std::time(NULL)));
+	int probability = rand() & 1;
+	std::cout << target;
+	if (probability) {
+		std::cout << " has been robotomized successfully\n";
+	}
+	else {
+		std::cout << " has been robotomized failed\n";
+	}
+}
+
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 	if (this->getIsSigned()) {
 		if (executor.getGrade() > this->getGradeForExecute()) {
 			throw GradeTooLowException();
 		}
-		//exec
+		robotomized("hello");
+	}
+	else {
+		std::cout << "no sign\n";
 	}
 }
