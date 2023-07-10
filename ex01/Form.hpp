@@ -12,8 +12,8 @@ class Form {
 private:
 	const std::string name;
 	bool isSigned;
-	const int gradeForSign;
-	const int gradeForExecute;
+	const short gradeForSign;
+	const short gradeForExecute;
 
 public:
 
@@ -41,7 +41,7 @@ public:
 
 	Form();
 
-	Form(const std::string name, const int gradeForSign, const int gradeForExecute);
+	Form(const std::string name, const short gradeForSign, const short gradeForExecute);
 
 	Form(const Form& other);
 
@@ -55,9 +55,9 @@ public:
 
 	bool getIsSigned() const;
 
-	int getGradeForSign() const;
+	short getGradeForSign() const;
 
-	int getGradeForExecute() const;
+	short getGradeForExecute() const;
 
 };
 
