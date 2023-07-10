@@ -2,15 +2,15 @@
 #include "Bureaucrat.hpp"
 
 void test1() {
-	try {
-		Bureaucrat salee2("salee2", 0);
-	} catch (std::exception& e) {
-		std::cout << "Exception: " << e.what() << std::endl;
-	}
-	try {
-		Bureaucrat salee2("salee2", 151);
-	} catch (std::exception& e) {
-		std::cout << "Exception: " << e.what() << std::endl;
+	int grade[] = {0, 151, -1, 152, -42, 4242, 1, 150, 50, 100};
+	int size = sizeof(grade) / sizeof(grade[0]);
+	for (int i = 0; i < size; ++i) {
+		try {
+			Bureaucrat salee2("salee2", grade[i]);
+			std::cout << salee2;
+		} catch (std::exception& e) {
+			std::cout << "Exception: " << e.what() << std::endl;
+		}
 	}
 	std::cout << "\n\n";
 }
@@ -45,13 +45,14 @@ void test3() {
 
 
 void test10() {
-	int lowGrade[6][2] = {{151, 100},
-						  {100, 151},
-						  {151, 151},
-						  {0,   1},
-						  {1,   0},
-						  {0,   0}};
-	for (int i = 0; i < 6; ++i) {
+	int lowGrade[][2] = {{151, 100},
+						 {100, 151},
+						 {151, 151},
+						 {0,   1},
+						 {1,   0},
+						 {0,   0}};
+	const int size = sizeof(lowGrade) / sizeof(lowGrade[0]);
+	for (int i = 0; i < size; ++i) {
 		try {
 			Form diary("diary", lowGrade[i][0], lowGrade[i][1]);
 		}
