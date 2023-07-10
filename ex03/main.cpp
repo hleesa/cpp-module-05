@@ -122,6 +122,14 @@ void test23() {
 	}
 }
 
+#include "Intern.hpp"
+
+void test30()
+{
+	Intern intern;
+	intern.makeForm("hello", "world");
+
+}
 
 int main() {
 
@@ -136,7 +144,9 @@ int main() {
 //	test20();
 //	test21();
 //	test22();
-	test23();
+//	test23();
+
+	test30();
 
 	std::cout << "#############################################" << std::endl;
 	std::cout << "#############################################" << std::endl;

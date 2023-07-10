@@ -7,6 +7,7 @@ CXXFLAGS	= -Wall -Wextra -Werror -MMD -MP -std=c++98
 SRCS = \
 	AForm.cpp \
 	Bureaucrat.cpp \
+	Intern.cpp \
 	main.cpp \
 	PresidentialPardonForm.cpp \
 	RobotomyRequestForm.cpp \
