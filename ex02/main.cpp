@@ -50,16 +50,18 @@ void test20() {
 	int size = sizeof(grade) / sizeof(grade[0]);
 	for (int i = 0; i < size; ++i) {
 		std::cout << i << '\n';
+		AForm* scf;
 		try {
 			Bureaucrat salee2("salee2", grade[i]);
 			std::cout << salee2;
-			AForm* scf = new ShrubberyCreationForm("home");
+			scf = new ShrubberyCreationForm("home");
 			std::cout << *scf;
 			salee2.signAForm(*scf);
 			salee2.executeForm(*scf);
 		} catch (std::exception& e) {
 			std::cout << "Exception: " << e.what() << std::endl;
 		}
+		delete scf;
 		std::cout << "\n\n";
 	}
 }
@@ -71,16 +73,18 @@ void test21() {
 	int size = sizeof(grade) / sizeof(grade[0]);
 	for (int i = 0; i < size; ++i) {
 		std::cout << i << '\n';
+		AForm* rrf;
 		try {
 			Bureaucrat salee2("salee2", grade[i]);
 			std::cout << salee2;
-			AForm* rrf = new RobotomyRequestForm("housekeeper");
+			rrf = new RobotomyRequestForm("housekeeper");
 			std::cout << *rrf;
 			salee2.signAForm(*rrf);
 			salee2.executeForm(*rrf);
 		} catch (std::exception& e) {
 			std::cout << "Exception: " << e.what() << std::endl;
 		}
+		delete rrf;
 		std::cout << "\n\n";
 	}
 }
@@ -89,14 +93,16 @@ void test22() {
 	int size = 10;
 	for (int i = 0; i < size; ++i) {
 		std::cout << i << '\n';
+		AForm* rrf;
 		try {
 			Bureaucrat salee2("salee2", 45);
-			AForm* rrf = new RobotomyRequestForm("housekeeper");
+			rrf = new RobotomyRequestForm("housekeeper");
 			salee2.signAForm(*rrf);
 			salee2.executeForm(*rrf);
 		} catch (std::exception& e) {
 			std::cout << "Exception: " << e.what() << std::endl;
 		}
+		delete rrf;
 		std::cout << "\n\n";
 	}
 }
@@ -108,16 +114,18 @@ void test23() {
 	int size = sizeof(grade) / sizeof(grade[0]);
 	for (int i = 0; i < size; ++i) {
 		std::cout << i << '\n';
+		AForm* ppf;
 		try {
 			Bureaucrat salee2("salee2", grade[i]);
 			std::cout << salee2;
-			AForm* ppf = new PresidentialPardonForm("bocal");
+			ppf = new PresidentialPardonForm("bocal");
 			std::cout << *ppf;
 			salee2.signAForm(*ppf);
 			salee2.executeForm(*ppf);
 		} catch (std::exception& e) {
 			std::cout << "Exception: " << e.what() << std::endl;
 		}
+		delete ppf;
 		std::cout << "\n\n";
 	}
 }
@@ -138,6 +146,7 @@ int main() {
 //	test22();
 //	test23();
 
+//	system("leaks AForm28B");
 	std::cout << "#############################################" << std::endl;
 	std::cout << "#############################################" << std::endl;
 

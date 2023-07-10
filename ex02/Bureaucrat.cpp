@@ -1,8 +1,8 @@
 
 #include "Bureaucrat.hpp"
 
-const int Bureaucrat::highestGrade = 1;
-const int Bureaucrat::lowestGrade = 150;
+const short Bureaucrat::highestGrade = 1;
+const short Bureaucrat::lowestGrade = 150;
 
 Bureaucrat::GradeTooHighException::GradeTooHighException() : errorMessage("The bureaucrat's grade is too high") {
 }
@@ -21,7 +21,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 Bureaucrat::Bureaucrat() : name("none"), grade(lowestGrade) {
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name), grade(grade) {
+Bureaucrat::Bureaucrat(const std::string name, short grade) : name(name), grade(grade) {
 	if (grade < highestGrade) {
 		throw GradeTooHighException();
 	}
@@ -81,15 +81,15 @@ const std::string Bureaucrat::getName() const {
 	return name;
 }
 
-int Bureaucrat::getGrade() const {
+short Bureaucrat::getGrade() const {
 	return grade;
 }
 
-int Bureaucrat::getHighestGrade() {
+short Bureaucrat::getHighestGrade() {
 	return highestGrade;
 }
 
-int Bureaucrat::getLowestGrade() {
+short Bureaucrat::getLowestGrade() {
 	return lowestGrade;
 }
 
