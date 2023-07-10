@@ -47,13 +47,7 @@ void writeASCIITrees(std::string target) {
 }
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
-	if (this->getIsSigned()) {
-		if (executor.getGrade() > this->getGradeForExecute()) {
-			throw GradeTooLowException();
-		}
-		writeASCIITrees(this->getTarget());
-	}
-	else {
-		std::cout << "no sign" << std::endl;
+	if (isExecutable(executor)) {
+		writeASCIITrees(getTarget());
 	}
 }

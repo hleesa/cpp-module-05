@@ -38,6 +38,16 @@ public:
 		const char* what() const throw();
 	};
 
+	class NoSignedFormException : public std::exception {
+	private:
+		const char* errorMessage;
+
+	public:
+		NoSignedFormException();
+
+		const char* what() const throw();
+	};
+
 	void validateGrades();
 
 	AForm();
@@ -52,6 +62,10 @@ public:
 
 	void beSigned(const Bureaucrat& bureaucrat);
 
+	bool isExecutable(Bureaucrat const& executor) const;
+
+	virtual void execute(Bureaucrat const& executor) const = 0;
+
 	const std::string getName() const;
 
 	const std::string getTarget() const;
@@ -61,8 +75,6 @@ public:
 	int getGradeForSign() const;
 
 	int getGradeForExecute() const;
-
-	virtual void execute(Bureaucrat const& executor) const = 0;
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj);

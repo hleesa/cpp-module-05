@@ -38,13 +38,7 @@ void robotomized(std::string target) {
 }
 
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
-	if (this->getIsSigned()) {
-		if (executor.getGrade() > this->getGradeForExecute()) {
-			throw GradeTooLowException();
-		}
-		robotomized("hello");
-	}
-	else {
-		std::cout << "no sign\n";
+	if (isExecutable(executor)) {
+		robotomized(getTarget());
 	}
 }

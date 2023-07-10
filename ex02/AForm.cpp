@@ -1,17 +1,24 @@
 
 #include "AForm.hpp"
 
-AForm::GradeTooHighException::GradeTooHighException() : errorMessage("The AForm's grade is too high") {
+AForm::GradeTooHighException::GradeTooHighException() : errorMessage("The form's grade is too high") {
 }
 
 const char* AForm::GradeTooHighException::what() const throw() {
 	return errorMessage;
 }
 
-AForm::GradeTooLowException::GradeTooLowException() : errorMessage("The AForm's grade is too low") {
+AForm::GradeTooLowException::GradeTooLowException() : errorMessage("The form's grade is too low") {
 }
 
 const char* AForm::GradeTooLowException::what() const throw() {
+	return errorMessage;
+}
+
+AForm::NoSignedFormException::NoSignedFormException() : errorMessage("The form is not signed") {
+}
+
+const char* AForm::NoSignedFormException::what() const throw() {
 	return errorMessage;
 }
 
@@ -31,7 +38,7 @@ void AForm::validateGrades() {
 }
 
 AForm::AForm() : name("none"), isSigned(false),
-			   gradeForSign(Bureaucrat::getLowestGrade()), gradeForExecute(Bureaucrat::getLowestGrade()) {
+				 gradeForSign(Bureaucrat::getLowestGrade()), gradeForExecute(Bureaucrat::getLowestGrade()) {
 }
 
 AForm::AForm(const std::string name, const std::string target, const int gradeForSign, const int gradeForExecute) :
@@ -40,7 +47,7 @@ AForm::AForm(const std::string name, const std::string target, const int gradeFo
 }
 
 AForm::AForm(const AForm& other) : name(other.name), isSigned(other.isSigned),
-								gradeForSign(other.gradeForSign), gradeForExecute(other.gradeForExecute) {
+								   gradeForSign(other.gradeForSign), gradeForExecute(other.gradeForExecute) {
 }
 
 AForm& AForm::operator=(const AForm& other) {
@@ -58,6 +65,16 @@ void AForm::beSigned(const Bureaucrat& bureaucrat) {
 		throw GradeTooLowException();
 	}
 	isSigned = true;
+}
+
+bool AForm::isExecutable(const Bureaucrat& executor) const {
+	if (isSigned) {
+		if (executor.getGrade() > gradeForExecute) {
+			throw GradeTooLowException();
+		}
+		return true;
+	}
+	throw NoSignedFormException();
 }
 
 const std::string AForm::getName() const {
@@ -81,6 +98,7 @@ int AForm::getGradeForExecute() const {
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj) {
-	os << obj.getName() << ", is signed: " << obj.getIsSigned() << ", grade for sign: " <<  obj.getGradeForSign() <<", grade for execute: " << obj.getGradeForExecute() << '\n';
+	os << "name: " << obj.getName() << ", target: " << obj.getTarget() << ", isSigned: " << obj.getIsSigned()
+	   << ", gradeForSign: " << obj.getGradeForSign() << ", gradeForExecute: " << obj.getGradeForExecute() << '\n';
 	return os;
 }

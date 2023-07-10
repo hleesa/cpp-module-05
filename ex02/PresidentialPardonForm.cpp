@@ -26,13 +26,7 @@ void pardon(std::string target) {
 }
 
 void PresidentialPardonForm::execute(const Bureaucrat& executor) const {
-	if (this->getIsSigned()) {
-		if (executor.getGrade() > this->getGradeForExecute()) {
-			throw GradeTooLowException();
-		}
-		pardon("world");
-	}
-	else {
-		std::cout << "no sign\n";
+	if (isExecutable(executor)) {
+		pardon(getTarget());
 	}
 }
