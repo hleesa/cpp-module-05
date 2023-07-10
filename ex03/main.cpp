@@ -125,10 +125,10 @@ void test23() {
 #include "Intern.hpp"
 
 void test30() {
-	std::string nameAndTarget[][2] = {{"shrubbery creation",  "dog"},
-									  {"robotomy request",    "Bender"},
-									  {"presidential pardon", "cat"},
+	std::string nameAndTarget[][2] = {{"robotomy request",    "Bender"},
+									  {"shrubbery creation",  "dog"},
 									  {"member request",      "salee2"},
+									  {"presidential pardon", "cat"},
 									  {"",                    ""}};
 	int size = 5;
 	for (int i = 0; i < size; ++i) {
@@ -141,7 +141,6 @@ void test30() {
 		}
 		std::cout << "\n\n";
 	}
-
 }
 
 int main() {
