@@ -126,8 +126,13 @@ void test23() {
 
 void test30()
 {
-	Intern intern;
-	intern.makeForm("hello", "world");
+	try {
+		Intern intern;
+		AForm* form;
+		form = intern.makeForm("robotomy request", "Bender");
+	} catch (std::exception& e) {
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
 
 }
 
