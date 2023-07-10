@@ -127,8 +127,10 @@ void test23() {
 void test30() {
 	std::string nameAndTarget[][2] = {{"shrubbery creation",  "dog"},
 									  {"robotomy request",    "Bender"},
-									  {"presidential pardon", "cat"}};
-	int size = 3;
+									  {"presidential pardon", "cat"},
+									  {"member request",      "salee2"},
+									  {"",                    ""}};
+	int size = 5;
 	for (int i = 0; i < size; ++i) {
 		try {
 			Intern intern;

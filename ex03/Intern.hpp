@@ -21,10 +21,6 @@ public:
 		const char* what() const throw();
 	};
 
-	class Factory{
-		static AForm* create(const std::string);
-	};
-
 	Intern();
 
 	Intern(const Intern& other);

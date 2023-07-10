@@ -29,7 +29,7 @@ int nameToIndex(const std::string name) {
 	std::string formNames[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 	int index = -1;
 	for (int i = 0; i < 3; ++i) {
-		if (name == formNames[i]){
+		if (name == formNames[i]) {
 			index = i;
 		}
 	}
@@ -43,11 +43,12 @@ AForm* Intern::makeForm(const std::string name, const std::string target) {
 			&AForm::createRobotomyRequestForm,
 			&AForm::createPresidentialPardonForm
 	};
+	const int numCreators = sizeof(creators) / sizeof(creators[0]);
 	int nameIdx = nameToIndex(name);
-	if (nameIdx < 0 || nameIdx >= 3) {
+	if (nameIdx < 0 || nameIdx >= numCreators) {
 		throw NoParameterException();
 	}
 	AForm* form = creators[nameIdx](target);
-	std::cout << "Intern creates " << *form << '\n';
+	std::cout << "Intern creates " << *form;
 	return form;
 }
