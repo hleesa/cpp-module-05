@@ -77,6 +77,24 @@ bool AForm::isExecutable(const Bureaucrat& executor) const {
 	throw NoSignedFormException();
 }
 
+#include "ShrubberyCreationForm.hpp"
+
+AForm* AForm::createShrubberyCreationForm(const std::string target) {
+	return new ShrubberyCreationForm(target);
+}
+
+#include "RobotomyRequestForm.hpp"
+
+AForm* AForm::createRobotomyRequestForm(const std::string target) {
+	return new RobotomyRequestForm(target);
+}
+
+#include "PresidentialPardonForm.hpp"
+
+AForm* AForm::createPresidentialPardonForm(const std::string target) {
+	return new PresidentialPardonForm(target);
+}
+
 const std::string AForm::getName() const {
 	return name;
 }

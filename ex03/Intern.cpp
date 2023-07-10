@@ -37,21 +37,17 @@ int nameToIndex(const std::string name) {
 }
 
 AForm* Intern::makeForm(const std::string name, const std::string target) {
+	typedef AForm* (* FormCreator)(const std::string);
+	const FormCreator creators[] = {
+			&AForm::createShrubberyCreationForm,
+			&AForm::createRobotomyRequestForm,
+			&AForm::createPresidentialPardonForm
+	};
 	int nameIdx = nameToIndex(name);
-	AForm* form = NULL;
-	switch (nameIdx) {
-		case 0:
-			form = new ShrubberyCreationForm(target);
-			break;
-		case 1:
-			form = new RobotomyRequestForm(target);
-			break;
-		case 2:
-			form = new PresidentialPardonForm(target);
-			break;
-		default:
-			throw NoParameterException();
+	if (nameIdx < 0 || nameIdx >= 3) {
+		throw NoParameterException();
 	}
+	AForm* form = creators[nameIdx](target);
 	std::cout << "Intern creates " << *form << '\n';
 	return form;
 }

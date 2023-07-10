@@ -64,6 +64,12 @@ public:
 
 	bool isExecutable(Bureaucrat const& executor) const;
 
+	static AForm* createShrubberyCreationForm(const std::string target);
+
+	static AForm* createRobotomyRequestForm(const std::string target);
+
+	static AForm* createPresidentialPardonForm(const std::string target);
+
 	virtual void execute(Bureaucrat const& executor) const = 0;
 
 	const std::string getName() const;
