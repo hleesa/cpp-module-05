@@ -9,9 +9,9 @@ class Bureaucrat {
 
 private:
 	const std::string name;
-	int grade;
-	static const int highestGrade;
-	static const int lowestGrade;
+	short grade;
+	static const short highestGrade;
+	static const short lowestGrade;
 
 public:
 	class GradeTooHighException : public std::exception {
@@ -38,7 +38,7 @@ public:
 
 	Bureaucrat();
 
-	Bureaucrat(const std::string name, int grade);
+	Bureaucrat(const std::string name, short grade);
 
 	Bureaucrat(const Bureaucrat& other);
 
@@ -52,7 +52,7 @@ public:
 
 	const std::string getName() const;
 
-	int getGrade() const;
+	short getGrade() const;
 
 };
 
