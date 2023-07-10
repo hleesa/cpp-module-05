@@ -21,6 +21,18 @@ public:
 		const char* what() const throw();
 	};
 
+	class Factory{
+		static AForm* create(const std::string);
+	};
+
+	Intern();
+
+	Intern(const Intern& other);
+
+	Intern& operator=(const Intern& other);
+
+	~Intern();
+
 	AForm* makeForm(const std::string name, const std::string target);
 };
 

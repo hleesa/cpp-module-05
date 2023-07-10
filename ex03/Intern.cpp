@@ -8,6 +8,23 @@ const char* Intern::NoParameterException::what() const throw() {
 	return errorMessage;
 }
 
+Intern::Intern() {
+}
+
+Intern::Intern(const Intern& other) {
+	(void) other;
+}
+
+Intern& Intern::operator=(const Intern& other) {
+	if (this != &other) {
+		(void) other;
+	}
+	return *this;
+}
+
+Intern::~Intern() {
+}
+
 int nameToIndex(const std::string name) {
 	std::string formNames[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 	int index = -1;
