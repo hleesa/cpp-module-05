@@ -2,15 +2,15 @@
 #include "Bureaucrat.hpp"
 
 void test1() {
-	try {
-		Bureaucrat salee2("salee2", 0);
-	} catch (std::exception& e) {
-		std::cout << "Exception: " << e.what() << std::endl;
-	}
-	try {
-		Bureaucrat salee2("salee2", 151);
-	} catch (std::exception& e) {
-		std::cout << "Exception: " << e.what() << std::endl;
+	int grade[] = {0, 151, -1, 152, -42, 4242, 1, 150, 50, 100};
+	int size = sizeof(grade) / sizeof(grade[0]);
+	for (int i = 0; i < size; ++i) {
+		try {
+			Bureaucrat salee2("salee2", grade[i]);
+			std::cout << salee2;
+		} catch (std::exception& e) {
+			std::cout << "Exception: " << e.what() << std::endl;
+		}
 	}
 	std::cout << "\n\n";
 }
@@ -47,7 +47,7 @@ void test3() {
 
 void test20() {
 	int grade[] = {146, 145, 144, 138, 137, 136};
-	int size = 6;
+	int size = sizeof(grade) / sizeof(grade[0]);
 	for (int i = 0; i < size; ++i) {
 		std::cout << i << '\n';
 		try {
@@ -68,7 +68,7 @@ void test20() {
 
 void test21() {
 	int grade[] = {73, 72, 71, 46, 45, 44};
-	int size = 6;
+	int size = sizeof(grade) / sizeof(grade[0]);
 	for (int i = 0; i < size; ++i) {
 		std::cout << i << '\n';
 		try {
@@ -105,7 +105,7 @@ void test22() {
 
 void test23() {
 	int grade[] = {26, 25, 24, 6, 5, 4};
-	int size = 6;
+	int size = sizeof(grade) / sizeof(grade[0]);
 	for (int i = 0; i < size; ++i) {
 		std::cout << i << '\n';
 		try {
