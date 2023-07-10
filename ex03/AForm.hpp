@@ -13,8 +13,8 @@ private:
 	const std::string name;
 	const std::string target;
 	bool isSigned;
-	const int gradeForSign;
-	const int gradeForExecute;
+	const short gradeForSign;
+	const short gradeForExecute;
 
 public:
 
@@ -52,7 +52,7 @@ public:
 
 	AForm();
 
-	AForm(const std::string name, const std::string target, const int gradeForSign, const int gradeForExecute);
+	AForm(const std::string name, const std::string target, const short gradeForSign, const short gradeForExecute);
 
 	AForm(const AForm& other);
 
@@ -78,9 +78,9 @@ public:
 
 	bool getIsSigned() const;
 
-	int getGradeForSign() const;
+	short getGradeForSign() const;
 
-	int getGradeForExecute() const;
+	short getGradeForExecute() const;
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj);
