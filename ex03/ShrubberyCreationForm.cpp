@@ -23,7 +23,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 
 void writeASCIITrees(std::string target) {
 	std::string fileName = target + "_shrubbery";
-	std::ofstream outputFile(fileName);
+	std::ofstream outputFile(fileName.c_str());
 
 	if (outputFile.is_open()) {
 		outputFile << "         *" << std::endl;
