@@ -3,7 +3,7 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include <cstdlib>
-#include <time.h>
+#include <ctime>
 #include "AForm.hpp"
 
 class RobotomyRequestForm : public AForm {
