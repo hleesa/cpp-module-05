@@ -17,7 +17,6 @@ private:
 	static const short highestGrade;
 	static const short lowestGrade;
 
-public:
 	class GradeTooHighException : public std::exception {
 
 	private:
@@ -40,6 +39,7 @@ public:
 		const char* what() const throw();
 	};
 
+public:
 	Bureaucrat();
 
 	Bureaucrat(const std::string name, short grade);

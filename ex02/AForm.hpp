@@ -16,8 +16,6 @@ private:
 	const short gradeForSign;
 	const short gradeForExecute;
 
-public:
-
 	class GradeTooHighException : public std::exception {
 	private:
 		const char* errorMessage;
@@ -48,6 +46,7 @@ public:
 		const char* what() const throw();
 	};
 
+public:
 	void validateGrades();
 
 	AForm();

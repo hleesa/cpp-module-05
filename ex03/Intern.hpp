@@ -9,8 +9,8 @@
 
 class Intern {
 
-public:
 
+private:
 	class NoParameterException : public std::exception {
 	private:
 		const char* errorMessage;
@@ -21,6 +21,7 @@ public:
 		const char* what() const throw();
 	};
 
+public:
 	Intern();
 
 	Intern(const Intern& other);
